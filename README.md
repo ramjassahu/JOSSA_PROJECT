@@ -1,4 +1,4 @@
-JOSA Data Analysis Portal
+                                                                       JOSSA Data Analysis Portal
 Welcome to the JOSA Data Analysis Portal! This project aims to provide a user-friendly platform for data analysis tasks, leveraging the power of machine learning algorithms. Whether you're a data scientist, researcher, or enthusiast, this portal offers a suite of tools and resources to explore, analyze, and visualize datasets effectively.
 
 Table of Contents
