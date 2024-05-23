@@ -1,3 +1,4 @@
+import csv
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -34,7 +35,7 @@ try:
     # Select Institute Name
     institute_name_dropdown = wait.until(EC.element_to_be_clickable((By.ID, "ctl00_ContentPlaceHolder1_ddlInstitute_chosen")))
     institute_name_dropdown.click()
-    institute_name_option = wait.until(EC.element_to_be_clickable((By.XPATH, "//li[text()='ALL']")))
+    institute_name_option = wait.until(EC.element_to_be_clickable((By.XPATH, "//li[text()='Indian Institute of Technology Goa']")))
     institute_name_option.click()
     time.sleep(2)  # Wait for the page to update
 
@@ -59,16 +60,18 @@ try:
     # Wait for the results table to load
     table = wait.until(EC.presence_of_element_located((By.ID, "ctl00_ContentPlaceHolder1_pnlDisplayDetails")))
 
-    # Extract and print table data
+    # Extract and save table data to CSV file
     rows = table.find_elements(By.TAG_NAME, "tr")
-    for row in rows:
-        cols = row.find_elements(By.TAG_NAME, "td")
-        data = [col.text for col in cols]
-        print(data)
+    with open("output.csv", "w", newline="") as csvfile:
+        writer = csv.writer(csvfile)
+        for row in rows:
+            cols = row.find_elements(By.TAG_NAME, "td")
+            data = [col.text for col in cols]
+            writer.writerow(data)
 
 except Exception as e:
     print(f"An error occurred: {e}")
-
+ 
 finally:
     # Close the browser
     driver.quit()
