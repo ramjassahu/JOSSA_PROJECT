@@ -22,7 +22,7 @@ try:
     print("Selecting Year...")
     year_dropdown = wait.until(EC.element_to_be_clickable((By.ID, "ctl00_ContentPlaceHolder1_ddlYear_chosen")))
     year_dropdown.click()
-    year_option = wait.until(EC.element_to_be_clickable((By.XPATH, "//li[text()='2021']")))
+    year_option = wait.until(EC.element_to_be_clickable((By.XPATH, "//li[text()='2019']")))
     year_option.click()
     time.sleep(2)  # Wait for the page to update
 
@@ -46,7 +46,7 @@ try:
     print("Selecting Institute Name...")
     institute_name_dropdown = wait.until(EC.element_to_be_clickable((By.ID, "ctl00_ContentPlaceHolder1_ddlInstitute_chosen")))
     institute_name_dropdown.click()
-    institute_name_option = wait.until(EC.element_to_be_clickable((By.XPATH, "//li[text()='Indian Institute of Technology Goa']")))
+    institute_name_option = wait.until(EC.element_to_be_clickable((By.XPATH, "//li[text()='ALL']")))
     institute_name_option.click()
     time.sleep(2)  # Wait for the page to update
 
@@ -84,7 +84,7 @@ try:
             cols = row.find_elements(By.TAG_NAME, "td")
             data = [col.text for col in cols]
             writer.writerow(data)
-    print("Data saved to output1.csv")
+    print("Data saved to 2019_R1.csv")
 
 except Exception as e:
     print(f"An error occurred: {e}")
